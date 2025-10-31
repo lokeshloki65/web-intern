@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Developer Internship | Cognifyz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 1rem;
+      text-align: center;
+      color: #eef3f3;
+      font-size: 2rem;
+      text-shadow: 0 0 5px #00e5ff77;
+    }
+
+    .content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.15);
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      color: #00e5ff;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li::before {
+      content: "✔️ ";
+      color: #00e5ff;
+    }
+
+    .cta-button {
+      margin-top: 1rem;
+      background: linear-gradient(135deg, #00e5ff, #00bcd4);
+      color: black;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 0 10px #00e5ff88;
+      transition: 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: rgba(7, 12, 12, 0.864);
+      text-align: center;
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    footer a {
+      color: #00e5ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.5rem;
+      }
+
+      section {
+        padding: 0.8rem;
+      }
+
+      p, li {
+        font-size: 0.95rem;
+      }
+
+      .cta-button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <i class="fas fa-laptop-code"></i> Web Developer Internship at Cognifyz
+  </header>
+
+  <div class="content">
+    <section>
+      <h2>📌 Internship Overview</h2>
+      <p>Join our 4-week program to gain real-world web development experience with mentors. Build live apps!</p>
+    </section>
+
+    <section>
+      <h2>🌟 Internship Highlights</h2>
+      <ul>
+        <li>Real-time project experience</li>
+        <li>One-on-one mentorship</li>
+        <li>Internship Certificate</li>
+        <li>Flexible remote work</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🛠️ Desired Skills</h2>
+      <ul>
+        <li>HTML, CSS, JavaScript basics</li>
+        <li>Responsive Design knowledge</li>
+        <li>Git/GitHub familiarity</li>
+        <li>Willingness to learn</li>
+      </ul>
+    </section>
+
+    <a href="https://cognifyz.com/internships/"class="cta-button" target="_blank">🚀 Apply Now</a>
+  </div>
+  <footer>
+    📧 <a href="mailto:contact@cognifyztech.com">contact@cognifyztech.com</a> |
+    📞 <a href="tel:+919876543210">+91-9876543210</a><br />
+    © 2025 Cognifyz Technologies
+  </footer>
+
+</body>
+</html>

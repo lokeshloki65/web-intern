@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Image Manipulation Task</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f2027;
+      color: white;
+      overflow-x: hidden;
+      padding: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00e5ff;
+      margin: 2rem 0 1.5rem;
+    }
+
+    /* Thumbnail Gallery */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 3rem;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #00e5ff;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 50%;
+      user-select: none;
+    }
+
+    .nav-btn:hover {
+      background: #00e5ff;
+      color: #000;
+    }
+
+    .prev-btn {
+      left: 10px;
+    }
+
+    .next-btn {
+      right: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2rem;
+      color: white;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Slideshow */
+    .slideshow {
+      width: 100%;
+      max-width: 900px;
+      height: 50vh;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,229,255,0.5);
+    }
+
+    .slides {
+      display: flex;
+      width: 400%;
+      height: 100%;
+      animation: slide 12s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0% {margin-left: 0%;}
+      25% {margin-left: 0%;}
+      30% {margin-left: -100%;}
+      55% {margin-left: -100%;}
+      60% {margin-left: -200%;}
+      85% {margin-left: -200%;}
+      90% {margin-left: -300%;}
+      100% {margin-left: -300%;}
+    }
+
+    @media (max-width: 768px) {
+      .gallery img {
+        width: 100px;
+        height: 70px;
+      }
+
+      .slideshow {
+        height: 30vh;
+      }
+
+      .nav-btn {
+        font-size: 1.5rem;
+      }
+
+      .close-btn {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🖼️ Thumbnail Image Gallery</h1>
+  <div class="gallery">
+    <img src="images/img1.jpg" alt="Image 1" onclick="openLightbox(0)">
+    <img src="images/img2.jpg" alt="Image 2" onclick="openLightbox(1)">
+    <img src="images/img3.jpg" alt="Image 3" onclick="openLightbox(2)">
+    <img src="images/img4.jpg" alt="Image 4" onclick="openLightbox(3)">
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="close-btn" onclick="closeLightbox()">×</button>
+    <button class="nav-btn prev-btn" onclick="changeImage(-1)">❮</button>
+    <img id="lightbox-img" src="" alt="Preview">
+    <button class="nav-btn next-btn" onclick="changeImage(1)">❯</button>
+  </div>
+
+  <h1>🎞️ Slideshow</h1>
+  <div class="slideshow">
+    <div class="slides">
+      <img src="images/img1.jpg" alt="Slide 1">
+      <img src="images/img2.jpg" alt="Slide 2">
+      <img src="images/img3.jpg" alt="Slide 3">
+      <img src="images/img4.jpg" alt="Slide 4">
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      "images/img1.jpg",
+      "images/img2.jpg",
+      "images/img3.jpg",
+      "images/img4.webp"
+    ];
+
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      document.getElementById("lightbox-img").src = images[currentIndex];
+      document.getElementById("lightbox").classList.add("active");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("active");
+    }
+
+    function changeImage(direction) {
+      currentIndex = (currentIndex + direction + images.length) % images.length;
+      document.getElementById("lightbox-img").src = images[currentIndex];
+    }
+  </script>
+
+</body>
+</html>
